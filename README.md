@@ -6,14 +6,14 @@ Este repositorio es una recopilación de mis proyectos iniciales y más básicos
 
 A continuación se describen los proyectos incluidos en este directorio:
 
+### [mi-ia-web](mi-ia-web/)
+Una aplicación web interactiva que utiliza Streamlit y TensorFlow para el reconocimiento de dígitos escritos a mano. Carga un modelo entrenado con el dataset MNIST para predecir números dibujados en tiempo real.
+
 ### [2D-Drawing-App](2D-Drawing-App/)
 Un simulador de figuras geométricas 2D desarrollado en Python que utiliza Programación Orientada a Objetos. Ofrece una aplicación de consola y una interfaz web interactiva con Streamlit para renderizar figuras como círculos y rectángulos en formato SVG.
 
 ### [Automation-Directory-Downloads-](Automation-Directory-Downloads-/)
 Un script de automatización diseñado para organizar y limpiar la carpeta de descargas del sistema. Está optimizado para ejecutarse periódicamente mediante tareas programadas (como cron en Linux).
-
-### [mi-ia-web](mi-ia-web/)
-Una aplicación web interactiva que utiliza Streamlit y TensorFlow para el reconocimiento de dígitos escritos a mano. Carga un modelo entrenado con el dataset MNIST para predecir números dibujados en tiempo real.
 
 ### [CRUD](CRUD/)
 Una aplicación de escritorio creada con Tkinter que funciona como una interfaz de gestión de base de datos. Permite realizar operaciones de Creación, Lectura, Actualización y Borrado (CRUD) interactuando con una base de datos local SQLite.
