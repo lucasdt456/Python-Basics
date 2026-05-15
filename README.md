@@ -1,4 +1,4 @@
-# Mis Proyectos Git Antiguos
+# Mis Proyectos Iniciales
 
 Este repositorio es una recopilación de mis proyectos iniciales y más básicos. Sirve como un historial de mi progreso en la programación y desarrollo de software, abarcando desde aplicaciones de consola y scripts de automatización hasta interfaces gráficas y aplicaciones web.
 
