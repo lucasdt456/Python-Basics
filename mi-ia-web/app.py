@@ -3,15 +3,20 @@ import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
 import cv2
 import numpy as np
+import os
+
 # Configuración de la página
 st.set_page_config(page_title="IA Digit Recognizer")
 st.title("Reconocedor de Dígitos en Tiempo Real")
 st.write("Dibuja un número del 0 al 9 en el recuadro negro.")
 
 # 1. Cargar el modelo guardado
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, 'model_mnist.keras')
+
 @st.cache_resource
 def load_my_model():
-  return tf.keras.models.load_model('model_mnist.keras')
+  return tf.keras.models.load_model(MODEL_PATH)
 
 model = load_my_model()
 # 2. Crear el lienzo (Canvas) para dibujar
