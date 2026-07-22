@@ -1,5 +1,7 @@
 # Mis Proyectos Iniciales
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+
 Este repositorio es una recopilación de mis proyectos iniciales y más básicos. Sirve como un historial de mi progreso en la programación y desarrollo de software, abarcando desde aplicaciones de consola y scripts de automatización hasta interfaces gráficas y aplicaciones web.
 
 ## Contenido del Repositorio
