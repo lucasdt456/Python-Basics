@@ -3,6 +3,10 @@
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-212121?style=for-the-badge&logo=python&logoColor=white)](https://customtkinter.tomschimansky.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Keras](https://img.shields.io/badge/Keras-D00000.svg?style=for-the-badge&logo=keras&logoColor=white)](https://keras.io/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/?hl=es-419)
+[![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv-opencv.mintlify.app/)
+[![NumPy](https://img.shields.io/badge/NumPy-013243.svg?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/es/)
 
 Este repositorio es una recopilación de mis proyectos iniciales y más básicos. Sirve como un historial de mi progreso en la programación y desarrollo de software, abarcando desde aplicaciones de consola y scripts de automatización hasta interfaces gráficas y aplicaciones web.
 
