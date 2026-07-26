@@ -1,6 +1,8 @@
 # Mis Proyectos Iniciales
 
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
+[![CustomTkinter](https://img.shields.io/badge/CustomTkinter-212121?style=for-the-badge&logo=python&logoColor=white)](https://customtkinter.tomschimansky.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 Este repositorio es una recopilación de mis proyectos iniciales y más básicos. Sirve como un historial de mi progreso en la programación y desarrollo de software, abarcando desde aplicaciones de consola y scripts de automatización hasta interfaces gráficas y aplicaciones web.
 
