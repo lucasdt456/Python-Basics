@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-212121?style=for-the-badge&logo=python&logoColor=white)](https://customtkinter.tomschimansky.com/)
 [![Pillow](https://img.shields.io/badge/Pillow-%233776AB?style=for-the-badge&logo=python&logoColor=white)](https://pypi.org/project/pillow/)
+[![Pathlib](https://img.shields.io/badge/pathlib-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://docs.python.org/3/library/pathlib.html)
 [![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Keras](https://img.shields.io/badge/Keras-D00000.svg?style=for-the-badge&logo=keras&logoColor=white)](https://keras.io/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/?hl=es-419)
