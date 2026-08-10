@@ -53,7 +53,7 @@ uv run src/obsidian_notes_to_anki/main.py
 
 ## Uso
 
-El punto de entrada del proyecto está expuesto como comando de consola:
+Correr el archivo `main.py` con `uv`:
 
 ```bash
 uv run src/obsidian_notes_to_anki/main.py
@@ -79,7 +79,7 @@ Si no indicas una opción por parámetro, el programa muestra un menú interacti
 La opción 1 pide la ruta completa de un archivo y comprueba que exista antes de procesarlo.
 
 ### Opción 2 y 3
-
+uv
 Estas opciones forman parte del objetivo del proyecto y están pensadas para ampliar el alcance a carpetas y bóvedas enteras. Al ser recorridos más amplios, su coste depende directamente de la cantidad de archivos y de la profundidad de los directorios.
 
 ## Limitaciones actuales
