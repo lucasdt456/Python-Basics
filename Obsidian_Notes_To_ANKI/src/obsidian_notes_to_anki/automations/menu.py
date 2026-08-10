@@ -1,5 +1,6 @@
 import sys
 
+
 def menu() -> int:
     print("=========== Select an option ============")
     print("|    1. Clear only 1 file (quickly)     |")

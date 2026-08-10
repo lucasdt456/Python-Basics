@@ -1,6 +1,7 @@
-from .automation_one_file import comment_the_file
-from pathlib import Path
 import sys
+from pathlib import Path
+from .automation_one_file import comment_the_file
+
 
 def redirect_script(option):
     match option:
@@ -11,14 +12,17 @@ def redirect_script(option):
                     path_input = path_input.strip("'\"")
                     path_input = Path(path_input)
 
-                    if path_input.exists() and path_input.is_file():  
+                    if path_input.exists() and path_input.is_file():
                         comment_the_file(path_input)
                         break
                     else:
                         print("Pass the correct path (or exit Ctrl + C)...")
 
                 except Exception as e:
-                    print("Error with the input path (check the file, directory, full path...): ", e)
+                    print(
+                        "Error with the input path (check the file, directory, full path...): ",
+                        e,
+                    )
 
                 except KeyboardInterrupt:
                     sys.exit("\nExiting the script...")
