@@ -39,7 +39,7 @@ Este proyecto usa únicamente herramientas y librerías estándar o ligeras:
 
 ## Instalación
 
-1. Instala [uv](https://docs.astral.sh/uv/getting-started/installation/) si todavía no lo tienes.
+1. Instala [`uv`](https://docs.astral.sh/uv/getting-started/installation/) si todavía no lo tienes.
 2. Entra en la carpeta del proyecto `Obsidian_Notes_To_ANKI`.
 3. Sincroniza el entorno del proyecto con `uv` o corre el script directamente con Python.
 
