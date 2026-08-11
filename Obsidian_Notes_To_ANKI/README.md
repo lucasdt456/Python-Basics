@@ -54,7 +54,7 @@ uv run src/obsidian_notes_to_anki/main.py
 
 ## Uso
 
-Correr el archivo `main.py` con `uv`:
+Correr el archivo `main.py` con `uv` para uso de menú por consola:
 
 ```bash
 uv run src/obsidian_notes_to_anki/main.py
@@ -65,7 +65,7 @@ También admite la selección de opción por parámetro:
 ```bash
 uv run src/obsidian_notes_to_anki/main.py -o 1 
 uv run src/obsidian_notes_to_anki/main.py --option 1
-# con opciones 2 y 3 disponibles también
+# con opciones 2 y 3 también disponibles
 ```
 
 Opciones disponibles:
