@@ -16,24 +16,25 @@ En este momento el flujo principal está pensado para:
 2. Un directorio completo.
 3. Toda la bóveda.
 
-Cuanto mayor sea la profundidad del árbol de carpetas o el tamaño de la bóveda, más costosa será la ejecución de las opciones 2 y 3.
+*Cuanto mayor sea la profundidad del árbol de carpetas o el tamaño de la bóveda, más costosa será la ejecución de las opciones 2 y 3.*
 
 ## Qué hace
 
 - Busca referencias a `TARGET DECK` en notas de Obsidian.
 - Comenta o neutraliza la línea encontrada para que deje de ser interpretada por el flujo de Obsidian hacia ANKI.
 - Conserva la nota original dentro de Obsidian, pero sin redirección activa.
-- No elimina mazos ni tarjetas ya importadas en ANKI.
+- **IMPORTANTE:** No elimina mazos ni tarjetas ya importadas en ANKI.
 
 ## Tecnologías
 
-Este proyecto usa únicamente herramientas y librerías estándar o ligeras:
+Este proyecto usa librerías estándar y externas, junto un gestor de paquetes e instalador moderno y un linter y formateador unificado:
 
 - Python 3.12 o superior.
 - `pathlib` para manejar rutas y archivos.
 - `sys` para salida de proceso y control de ejecución.
 - `os` para tipado y utilidades de rutas.
 - `argparse` para construir la interfaz de consola.
+- `pytest` para pruebas unitarias y testing automatizado.
 - `uv` como gestor de entorno, dependencias y ejecución.
 - `ruff` como linter y formateador.
 
@@ -62,8 +63,9 @@ uv run src/obsidian_notes_to_anki/main.py
 También admite la selección de opción por parámetro:
 
 ```bash
-uv run src/obsidian_notes_to_anki/main.py -o 1
+uv run src/obsidian_notes_to_anki/main.py -o 1 
 uv run src/obsidian_notes_to_anki/main.py --option 1
+# con opciones 2 y 3 disponibles también
 ```
 
 Opciones disponibles:
@@ -90,4 +92,4 @@ Estas opciones forman parte del objetivo del proyecto y están pensadas para amp
 
 ## Desarrollo
 
-El repositorio está organizado como un proyecto Python moderno con `src/`, `uv` y `ruff`. Cuando se añadan nuevas piezas, la intención es mantener el código pequeño, trazable y fácil de validar con tests.
+El repositorio está organizado como un proyecto Python moderno con `src/`, `pytest`, `uv` y `ruff`. La intención es mantener el código pequeño, trazable, limpio y fácil de validar con tests.
