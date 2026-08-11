@@ -24,12 +24,7 @@ Propiedades de espacios vectoriales #basic
 			- $\alpha(\beta \vec{u})=(\alpha·\beta)\vec{u}$
 		- #### Elemento neutro
 			- $1 · \vec{u}=\vec{u}$
-<!--ID: 1762708786664-->%
-
-
-
-
-
+<!--ID: 1762708786664-->
 
 Ejemplos de espacios vectoriales #basic 
 - ## Ejemplos de E.V
@@ -49,10 +44,6 @@ Ejemplos de espacios vectoriales #basic
 		- $$\vec{0}$$
 			- $Para todos los conjuntos de vectores$
 <!--ID: 1762708786667-->
-
-
-
-
 
 Información #basic 
 Sistema generador = conjunto de vectores 

@@ -7,7 +7,9 @@ authors = [
     { name = "Lucas", email = "virgillitolucas430@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pytest>=9.1.1",
+]
 
 [project.scripts]
 obsidian-notes-to-anki = "obsidian_notes_to_anki.main:main"
@@ -42,3 +44,6 @@ ignore = []
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

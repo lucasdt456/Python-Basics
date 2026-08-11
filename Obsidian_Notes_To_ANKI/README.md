@@ -29,7 +29,7 @@ Cuanto mayor sea la profundidad del árbol de carpetas o el tamaño de la bóved
 
 Este proyecto usa únicamente herramientas y librerías estándar o ligeras:
 
-- Python 3.13 o superior.
+- Python 3.12 o superior.
 - `pathlib` para manejar rutas y archivos.
 - `sys` para salida de proceso y control de ejecución.
 - `os` para tipado y utilidades de rutas.
@@ -47,7 +47,7 @@ Ejemplo:
 
 ```bash
 uv sync
-# o
+# ó
 uv run src/obsidian_notes_to_anki/main.py
 ```
 
@@ -68,9 +68,9 @@ uv run src/obsidian_notes_to_anki/main.py --option 1
 
 Opciones disponibles:
 
-1. `1` - Limpiar un único fichero.
-2. `2` - Limpiar un directorio completo.
-3. `3` - Limpiar toda la bóveda.
+1. `1 - Limpiar un único fichero.`
+2. `2 - Limpiar un directorio completo.`
+3. `3 - Limpiar toda la bóveda.`
 
 Si no indicas una opción por parámetro, el programa muestra un menú interactivo en consola.
 
@@ -79,7 +79,7 @@ Si no indicas una opción por parámetro, el programa muestra un menú interacti
 La opción 1 pide la ruta completa de un archivo y comprueba que exista antes de procesarlo.
 
 ### Opción 2 y 3
-uv
+
 Estas opciones forman parte del objetivo del proyecto y están pensadas para ampliar el alcance a carpetas y bóvedas enteras. Al ser recorridos más amplios, su coste depende directamente de la cantidad de archivos y de la profundidad de los directorios.
 
 ## Limitaciones actuales
