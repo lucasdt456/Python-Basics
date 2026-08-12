@@ -1,7 +1,7 @@
 [project]
 name = "obsidian-notes-to-anki"
 version = "0.1.0"
-description = "Add your description here"
+description = "Obsidian note cleaner for ANKI"
 readme = "README.md"
 authors = [
     { name = "Lucas", email = "virgillitolucas430@gmail.com" }

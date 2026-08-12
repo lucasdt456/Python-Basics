@@ -5,13 +5,14 @@
 - *I/O:* abres con r+ y usas writelines; mezclar líneas vs bloque multilínea puede producir formatos inesperados. Considerar lectura como texto, modificar y escribir de forma atómica.
 
 - *Manejo de excepciones:* hay except Exception muy generales en varios sitios; es mejor capturar errores esperados y dejar que otros se propaguen o se registren.
+
 - *Tipado y API:* comment_the_file acepta full_path genérico — usa Path en la firma y añade hints para mayor claridad y editor autocomplete.
 
-*CLI UX / automatización:* ahora usas input()/menu() — para automatizaciones conviene añadir main() + argparse (soporte non-interactive, scripting).
+- *CLI UX / automatización:* ahora usas input()/menu() — para automatizaciones conviene añadir main() + argparse (soporte non-interactive, scripting).
 
 - *Packaging/ejecución:* ejecutar script.py desde otra ruta puede romper imports relativos; si pretendes usarlo como paquete, añade pyproject.toml/setup.cfg o documenta PYTHONPATH/uso python -m.
 
-*Pruebas y README:* no hay README ni tests; recomendable añadir al menos instrucciones de uso y pruebas básicas.
+- *Pruebas y README:* no hay README ni tests; recomendable añadir al menos instrucciones de uso y pruebas básicas.
 
 
 **Recomendaciones concretas:**

@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import patch
+import logging
 from obsidian_notes_to_anki.automations.redirect_automation_script import redirect_script
 
 
@@ -21,7 +22,7 @@ def test_correct_redirectetion(mock_comment_file, mock_input, tmp_path, option_c
     mock_comment_file.assert_called_once_with(fake_file)
 
 
-# delete when implement the 2 and 3 options
+# delete the function when implement the 2 and 3 options
 @pytest.mark.parametrize(
     "option_case, expected_value",
     [
@@ -61,17 +62,22 @@ def test_redirect_option_1_recovers_from_bad_path(mock_comment_file, mock_input,
     output_print = capsys.readouterr()
     assert "Pass the correct path" in output_print.out
 
-    with capsys.disabled():
-        print(f"\n--- PRINTS CAPTURADOS ---")
-        print(output_print.out)
-        print("---------------------------------")
+    # with capsys.disabled():
+    #     print(f"\n--- PRINTS CAPTURADOS ---")
+    #     print(output_print.out)
+    #     print("---------------------------------")
 
 
-@patch("builtins.input")
-def test_redirect_option_1_keyboard_interrupt(mock_input):
-    mock_input.side_effect = KeyboardInterrupt
+@patch("builtins.input", side_effect=KeyboardInterrupt)
+def test_redirect_option_1_keyboard_interrupt(mock_input, caplog):
+    
+    with pytest.raises(SystemExit) as exception:
+        redirect_script(1) 
 
-    with pytest.raises(SystemExit) as exception_info:
-        redirect_script(1)
+    assert exception.value.code == 0
 
-    assert "Exiting the script..." in str(exception_info.value)
+    assert len(caplog.records) == 1
+    assert caplog.records[0].levelname == "INFO"
+    assert "(Ctrl + C): Exiting the script..." in caplog.text
+
+    assert mock_input.call_count == 1

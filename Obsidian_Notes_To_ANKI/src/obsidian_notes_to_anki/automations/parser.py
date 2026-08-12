@@ -1,4 +1,5 @@
 import argparse
+# import logging
 
 def parse_arguments() -> int:
 
@@ -6,4 +7,6 @@ def parse_arguments() -> int:
     parser.add_argument("-o", "--option", 
                         type=int, choices=[1, 2, 3], 
                         help="Select option (1 = clear one file; 2 = clear one directory; 3 = clear full vault)")
+    # logging.debug(f"Parse arguments function finish. With option: {parser.parse_args().option}")
     return parser.parse_args()
+    

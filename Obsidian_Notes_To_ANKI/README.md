@@ -27,7 +27,7 @@ En este momento el flujo principal está pensado para:
 
 ## Tecnologías
 
-Este proyecto usa librerías estándar y externas, junto un gestor de paquetes e instalador moderno y un linter y formateador unificado:
+Este proyecto usa librerías estándar y externas (solo pytest), junto un gestor de paquetes e instalador moderno y un linter y formateador unificado:
 
 - Python 3.12 o superior.
 - `pathlib` para manejar rutas y archivos.
@@ -35,6 +35,7 @@ Este proyecto usa librerías estándar y externas, junto un gestor de paquetes e
 - `os` para tipado y utilidades de rutas.
 - `argparse` para construir la interfaz de consola.
 - `pytest` para pruebas unitarias y testing automatizado.
+- `logging` para registro de eventos, errores, depuración y control del flujo de ejecución.
 - `uv` como gestor de entorno, dependencias y ejecución.
 - `ruff` como linter y formateador.
 
@@ -57,7 +58,12 @@ uv run src/obsidian_notes_to_anki/main.py
 Correr el archivo `main.py` con `uv` para uso de menú por consola:
 
 ```bash
+# forma sencilla mediante el script ejectuable (desde cualquier ruta si el entorno está sincronizado):
+obsidian-notes-to-anki
+# ó con run:
 uv run src/obsidian_notes_to_anki/main.py
+# ó desde cualquier ruta (externa a Obsidian_Notes_To_ANKI) ejecutando con python -m como módulo:
+uv run python3 -m Obsidian_Notes_To_ANKI.src.obsidian_notes_to_anki.main
 ```
 
 También admite la selección de opción por parámetro:
@@ -92,4 +98,4 @@ Estas opciones forman parte del objetivo del proyecto y están pensadas para amp
 
 ## Desarrollo
 
-El repositorio está organizado como un proyecto Python moderno con `src/`, `pytest`, `uv` y `ruff`. La intención es mantener el código pequeño, trazable, limpio y fácil de validar con tests.
+El repositorio está organizado como un proyecto Python moderno con `src/`, `pytest`, `logging`, `uv` y `ruff`. La intención es mantener el código pequeño, trazable, limpio y fácil de validar con tests y logs *(sin archivo `app.log`)*.

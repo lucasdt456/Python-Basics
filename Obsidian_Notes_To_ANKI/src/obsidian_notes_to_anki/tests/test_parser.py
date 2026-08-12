@@ -1,7 +1,7 @@
 from obsidian_notes_to_anki.automations.parser import parse_arguments
 import pytest
-import sys
-
+# import sys
+import logging
 
 @pytest.mark.parametrize(
         "input_args, expected_result",
@@ -12,13 +12,15 @@ import sys
 
         ]
 )
-def test_parse_all_arg(monkeypatch, input_args, expected_result):
+def test_parse_all_arg(monkeypatch, caplog, input_args, expected_result):
+    caplog.set_level(logging.DEBUG)
     monkeypatch.setattr("sys.argv", input_args)
     args = parse_arguments()
     assert args.option == expected_result
 
 
-def test_parse_failed(monkeypatch):
+def test_parse_failed(monkeypatch, caplog):
+    caplog.set_level(logging.DEBUG)
     monkeypatch.setattr("sys.argv", ["main.py", "-o", "hello"])
 
     with pytest.raises(SystemExit) as exception:
