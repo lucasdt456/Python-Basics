@@ -19,7 +19,7 @@ Este repositorio es una recopilación de mis proyectos iniciales y más básicos
 A continuación se describen los proyectos incluidos en este directorio:
 
 ### [Obsidian_Notes_To_ANKI](Obsidian_Notes_To_ANKI/)
-Un mini-proyecto encargado de limpiar notas antiguas de Obsidian a ANKI. Encargado de "inutilizar" nota/s para que dejen de tener redirección a ANKI.
+Un mini-proyecto encargado de limpiar notas antiguas de Obsidian a ANKI. Creado para "inutilizar" nota/s dejándolas sin redirección a ANKI. El proyecto es de uso por consola, con 3 opciones de uso *(limpiar un fichero, limpiar un directorio entero, limpiar toda la bóveda)*. Está creado para un tipo de nota específica (con específica estructuración).
 
 ### [mi-ia-web](mi-ia-web/)
 Una aplicación web interactiva que utiliza Streamlit y TensorFlow para el reconocimiento de dígitos escritos a mano. Carga un modelo entrenado con el dataset MNIST para predecir números dibujados en tiempo real.
