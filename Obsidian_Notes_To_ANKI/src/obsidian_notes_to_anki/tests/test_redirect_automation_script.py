@@ -1,20 +1,25 @@
-import pytest
 from unittest.mock import patch
-import logging
-from obsidian_notes_to_anki.automations.redirect_automation_script import redirect_script
+
+import pytest
+
+from obsidian_notes_to_anki.automations.redirect_automation_script import (
+    redirect_script,
+)
 
 
 @pytest.mark.parametrize(
     "option_case, expected_value",
     [
         (1, True)
-        #(2, True),
-        #(3, True)
-    ]
+        # (2, True),
+        # (3, True)
+    ],
 )
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
-def test_correct_redirectetion(mock_comment_file, mock_input, tmp_path, option_case, expected_value):
+def test_correct_redirectetion(
+    mock_comment_file, mock_input, tmp_path, option_case, expected_value
+):
     fake_file = tmp_path / "example.md"
     fake_file.touch()
     mock_input.return_value = str(fake_file)
@@ -23,20 +28,13 @@ def test_correct_redirectetion(mock_comment_file, mock_input, tmp_path, option_c
 
 
 # delete the function when implement the 2 and 3 options
-@pytest.mark.parametrize(
-    "option_case, expected_value",
-    [
-        
-        (2, True),
-        (3, True)
-    ]
-)
+@pytest.mark.parametrize("option_case, expected_value", [(2, True), (3, True)])
 @patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
 def test_two_three_options(mock_comment_file, option_case, expected_value, capsys):
     assert redirect_script(option_case) == expected_value
 
     mock_comment_file.assert_not_called()
-    
+
     output_print = capsys.readouterr()
     assert "In process...." in output_print.out
 
@@ -45,9 +43,12 @@ def test_two_three_options(mock_comment_file, option_case, expected_value, capsy
         print(output_print.out)
         print("---------------------------------")
 
+
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
-def test_redirect_option_1_recovers_from_bad_path(mock_comment_file, mock_input, tmp_path, capsys):
+def test_redirect_option_1_recovers_from_bad_path(
+    mock_comment_file, mock_input, tmp_path, capsys
+):
 
     fake_file = tmp_path / "example.md"
     fake_file.touch()
@@ -70,9 +71,9 @@ def test_redirect_option_1_recovers_from_bad_path(mock_comment_file, mock_input,
 
 @patch("builtins.input", side_effect=KeyboardInterrupt)
 def test_redirect_option_1_keyboard_interrupt(mock_input, caplog):
-    
+
     with pytest.raises(SystemExit) as exception:
-        redirect_script(1) 
+        redirect_script(1)
 
     assert exception.value.code == 0
 

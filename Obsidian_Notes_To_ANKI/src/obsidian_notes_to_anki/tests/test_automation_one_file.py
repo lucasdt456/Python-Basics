@@ -1,5 +1,7 @@
-import pytest
 from pathlib import Path
+
+import pytest
+
 from obsidian_notes_to_anki.automations.automation_one_file import comment_the_file
 
 content1 = """
@@ -87,15 +89,16 @@ Answer2
         (content6, "!These are annotated¡"),
         (content7, "!These are annotated¡"),
         (content8, "!These are annotated¡"),
-
-    ]
+    ],
 )
 def test_automate_one_file_correct(tmp_path, content, expected):
     full_path = tmp_path / "correct.md"
     full_path.write_text(content, encoding="utf-8")
 
     final_content = comment_the_file(full_path)
-    assert isinstance(final_content, Path), "Function return False (content don't modify). UNEXPECTED FAILURE. It was expected to be the modified file (return Path)."
+    assert isinstance(final_content, Path), (
+        "Function return False (content don't modify). UNEXPECTED FAILURE. It was expected to be the modified file (return Path)."
+    )
 
     final_content_text = final_content.read_text(encoding="utf-8")
     assert expected in final_content_text
@@ -200,15 +203,14 @@ Answer2
         (content13, False),
         (content14, False),
         ("", False),
-        ("Random note without the target keyword", False)
-
-    ]
+        ("Random note without the target keyword", False),
+    ],
 )
 def test_automate_one_file_should_fail(tmp_path, content, expected):
     full_path = tmp_path / "fail.md"
     full_path.write_text(content, encoding="utf-8")
 
     final_content = comment_the_file(full_path)
-    assert final_content is expected, f"\nThe function return -> {type(final_content)} and expect -> {(expected)}"
-
-
+    assert final_content is expected, (
+        f"\nThe function return -> {type(final_content)} and expect -> {(expected)}"
+    )

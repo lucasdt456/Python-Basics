@@ -29,7 +29,7 @@ En este momento el flujo principal está pensado para:
 
 Este proyecto usa librerías estándar y externas (solo pytest), junto un gestor de paquetes e instalador moderno y un linter y formateador unificado:
 
-- Python 3.12 o superior.
+- Python 3.13 o superior.
 - `pathlib` para manejar rutas y archivos.
 - `sys` para salida de proceso y control de ejecución.
 - `os` para tipado y utilidades de rutas.
@@ -37,7 +37,7 @@ Este proyecto usa librerías estándar y externas (solo pytest), junto un gestor
 - `pytest` para pruebas unitarias y testing automatizado.
 - `logging` para registro de eventos, errores, depuración y control del flujo de ejecución.
 - `uv` como gestor de entorno, dependencias y ejecución.
-- `ruff` como linter y formateador.
+- `ruff` como linter y formateador (configurado para que limpie el código en cada guardado).
 
 ## Instalación
 
@@ -62,8 +62,6 @@ Correr el archivo `main.py` con `uv` para uso de menú por consola:
 obsidian-notes-to-anki
 # ó con run:
 uv run src/obsidian_notes_to_anki/main.py
-# ó desde cualquier ruta (externa a Obsidian_Notes_To_ANKI) ejecutando con python -m como módulo:
-uv run python3 -m Obsidian_Notes_To_ANKI.src.obsidian_notes_to_anki.main
 ```
 
 También admite la selección de opción por parámetro:

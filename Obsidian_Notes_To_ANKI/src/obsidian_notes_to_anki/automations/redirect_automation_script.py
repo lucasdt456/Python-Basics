@@ -1,9 +1,11 @@
-import sys
 import logging
+import sys
 from pathlib import Path
+
 from .automation_one_file import comment_the_file
 
 logger = logging.getLogger(__name__)
+
 
 def redirect_script(option):
     match option:
@@ -32,17 +34,20 @@ def redirect_script(option):
                     logger.exception("Error with OS/path")
                     sys.exit(1)
 
-                except Exception:
-                    logger.exception(
-                        "Error with the input path (check the file, directory, full path...)"
-                    )
+                except (PermissionError, FileNotFoundError):
+                    logger.exception("Error with path/file")
                     sys.exit(1)
+
+                # except Exception:
+                #     logger.exception(
+                #         "Error with the input path (check the file, directory, full path...)"
+                #     )
+                #     sys.exit(1)
 
         case 2:
             print("In process....")
             print("Clear full directory")
             return True
-
 
         case 3:
             print("In process....")

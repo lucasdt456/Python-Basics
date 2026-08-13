@@ -1,7 +1,8 @@
-import sys
 import logging
+import sys
 
 logger = logging.getLogger(__name__)
+
 
 def menu() -> int:
     print("=========== Select an option ============")
@@ -21,13 +22,13 @@ def menu() -> int:
             else:
                 logger.warning("Select a good option (range 1-3)")
 
-        except ValueError as e:
+        except ValueError:
             logger.warning("Insert a number (range 1 - 3)")
 
         except KeyboardInterrupt:
             logger.info("(Ctrl + C): Exiting the script...")
             sys.exit(0)
 
-        except Exception as e:
-            logger.exception("Unexpected General Error occurred in menu.")
-            sys.exit(1)
+        # except Exception as e:
+        #     logger.exception("Unexpected General Error occurred in menu.")
+        #     sys.exit(1)
