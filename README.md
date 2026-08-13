@@ -1,8 +1,8 @@
 # Mis Proyectos Iniciales
 
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
-![uv](https://img.shields.io/badge/uv-%23DE5FE9.svg?style=for-the-badge&logo=uv&logoColor=white)
-![Pytest](https://img.shields.io/badge/pytest-%23ffffff.svg?style=for-the-badge&logo=pytest&logoColor=2f9fe3)
+[![uv](https://img.shields.io/badge/uv-%23DE5FE9.svg?style=for-the-badge&logo=uv&logoColor=white)](https://docs.astral.sh/uv/)
+[![Pytest](https://img.shields.io/badge/pytest-%23ffffff.svg?style=for-the-badge&logo=pytest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-212121?style=for-the-badge&logo=python&logoColor=white)](https://customtkinter.tomschimansky.com/)
 [![Pillow](https://img.shields.io/badge/Pillow-%233776AB?style=for-the-badge&logo=python&logoColor=white)](https://pypi.org/project/pillow/)
 [![Pathlib](https://img.shields.io/badge/pathlib-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://docs.python.org/3/library/pathlib.html)
