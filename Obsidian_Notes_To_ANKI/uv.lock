@@ -24,20 +24,20 @@ wheels = [
 name = "obsidian-notes-to-anki"
 version = "0.1.0"
 source = { editable = "." }
-dependencies = [
-    { name = "pytest" },
-]
 
 [package.dev-dependencies]
 dev = [
+    { name = "pytest" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ruff", specifier = ">=0.16.2" }]
+dev = [
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "ruff", specifier = ">=0.16.2" },
+]
 
 [[package]]
 name = "packaging"

@@ -1,16 +1,18 @@
-from obsidian_notes_to_anki.automations.parser import parse_arguments
-import pytest
 # import sys
 import logging
 
-@pytest.mark.parametrize(
-        "input_args, expected_result",
-        [
-            (["main.py", "-o", "3"], 3), 
-            (["main.py", "--option", "2"], 2), 
-            (["main.py", "-o", "1"], 1), 
+import pytest
 
-        ]
+from obsidian_notes_to_anki.automations.parser import parse_arguments
+
+
+@pytest.mark.parametrize(
+    "input_args, expected_result",
+    [
+        (["main.py", "-o", "3"], 3),
+        (["main.py", "--option", "2"], 2),
+        (["main.py", "-o", "1"], 1),
+    ],
 )
 def test_parse_all_arg(monkeypatch, caplog, input_args, expected_result):
     caplog.set_level(logging.DEBUG)

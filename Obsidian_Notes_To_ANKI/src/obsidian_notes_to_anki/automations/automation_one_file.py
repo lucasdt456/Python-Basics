@@ -4,6 +4,25 @@ import tempfile
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+logger.propagate = False
+
+log_path = Path("./src/obsidian_notes_to_anki/tests/test_files.log")
+log_path.parent.mkdir(parents=True, exist_ok=True)
+
+if not logger.handlers:
+    file_handler = logging.FileHandler(log_path, mode="a", encoding="utf-8")
+    formatter = logging.Formatter(
+        (
+            "======================================================"
+            "\n%(asctime)s - %(name)s - %(levelname)s - %(message)s\n"
+            "======================================================\n"
+        ),
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
 TEXT_TO_SEARCH = "TARGET DECK"
 
@@ -16,21 +35,24 @@ def comment_the_file(full_path: Path) -> Path | bool:
 
         if not content:
             print(f"The file '{full_path.name}' is empty.")
+            logger.debug(f"The file '{full_path.name}' is empty.")
             return False
 
         lines = content.splitlines(keepends=True)
 
         for line in lines:
             if "!These are annotated¡" in line:
-                print(
+                # print(
+                #     f"This file: '{full_path.name}' has been modified previously "
+                #     f"(contains the comment to disable the note) "
+                #     f"in this path: '{full_path}'"
+                # )
+                # print("Skipping this file...")
+                print(f"This file: '{full_path.name}' has been modified previously ")
+                logger.debug(
                     f"This file: '{full_path.name}' has been modified previously "
                     f"(contains the comment to disable the note) "
-                    "in this path: '{full_path}'"
-                )
-                print("Skipping this file...")
-                logger.debug(
-                    f"The file '{full_path.name}' was not modified "
-                    "(it has already been modified previously)"
+                    f"in this path: '{full_path}'"
                 )
                 return False
 
@@ -82,9 +104,10 @@ def comment_the_file(full_path: Path) -> Path | bool:
                 )
                 raise
 
-            print("The changes are correct.")
-            print("Exiting the script...")
-            logger.debug(f"Correct changes in '{full_path.name}' file")
+            # print(f"The changes are correct in file (full path): '{full_path}'")
+            # print("Exiting the script...")
+            print(f"Correct changes in file (full path): '{full_path}'")
+            logger.debug(f"The changes are correct in file (full path): '{full_path}'")
             return full_path
 
         else:
@@ -92,7 +115,10 @@ def comment_the_file(full_path: Path) -> Path | bool:
                 f"This file: '{full_path.name}' is not a note (ANKI <-> Obsidian) "
                 f"or does not contain '{TEXT_TO_SEARCH}'."
             )
-            logger.debug(f"The file '{full_path.name}' is not a note")
+            logger.debug(
+                f"This file: '{full_path.name}' is not a note (ANKI <-> Obsidian) "
+                f"or does not contain '{TEXT_TO_SEARCH}'."
+            )
             return False
 
     else:

@@ -9,11 +9,7 @@ from obsidian_notes_to_anki.automations.redirect_automation_script import (
 
 @pytest.mark.parametrize(
     "option_case, expected_value",
-    [
-        (1, True)
-        # (2, True),
-        # (3, True)
-    ],
+    [(1, True)],
 )
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
@@ -27,26 +23,24 @@ def test_correct_redirectetion(
     mock_comment_file.assert_called_once_with(fake_file)
 
 
-# delete the function when implement the 2 and 3 options
 @pytest.mark.parametrize("option_case, expected_value", [(2, True), (3, True)])
-@patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
-def test_two_three_options(mock_comment_file, option_case, expected_value, capsys):
+@patch("builtins.input")
+@patch(
+    "obsidian_notes_to_anki.automations.redirect_automation_script.comment_one_directory"
+)
+def test_two_three_options(
+    mock_comment_dir, mock_input, tmp_path, option_case, expected_value
+):
+    dir = tmp_path / "dir"
+    dir.mkdir()
+    mock_input.return_value = str(dir)
     assert redirect_script(option_case) == expected_value
-
-    mock_comment_file.assert_not_called()
-
-    output_print = capsys.readouterr()
-    assert "In process...." in output_print.out
-
-    with capsys.disabled():
-        print(f"\n--- PRINTS CAPTURADOS (Opción {option_case}) ---")
-        print(output_print.out)
-        print("---------------------------------")
+    mock_comment_dir.assert_called_once_with(dir)
 
 
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.automations.redirect_automation_script.comment_the_file")
-def test_redirect_option_1_recovers_from_bad_path(
+def test_redirect_recovers_from_bad_path(
     mock_comment_file, mock_input, tmp_path, capsys
 ):
 
@@ -55,7 +49,7 @@ def test_redirect_option_1_recovers_from_bad_path(
 
     mock_input.side_effect = ["fake/full/random/path/dont/exist.md", str(fake_file)]
 
-    assert redirect_script(1) == True
+    assert redirect_script(1) is True
     assert mock_input.call_count == 2
 
     mock_comment_file.assert_called_once_with(fake_file)
@@ -70,7 +64,7 @@ def test_redirect_option_1_recovers_from_bad_path(
 
 
 @patch("builtins.input", side_effect=KeyboardInterrupt)
-def test_redirect_option_1_keyboard_interrupt(mock_input, caplog):
+def test_redirect_keyboard_interrupt(mock_input, caplog):
 
     with pytest.raises(SystemExit) as exception:
         redirect_script(1)

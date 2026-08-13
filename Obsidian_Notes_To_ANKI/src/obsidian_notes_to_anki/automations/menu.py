@@ -10,7 +10,11 @@ def menu() -> int:
     print("|    2. Clear full directory (extense)  |")
     print("|    3. Clear full vault (very extense) |")
     print("=========================================")
+    print(" To review with more detail the changes: ")
+    print("============ test_files.log =============")
+    print("=========================================")
     print("============ Exit (Ctrl + C) ============")
+    print("| ===================================== |")
 
     while True:
         try:
@@ -20,12 +24,15 @@ def menu() -> int:
                 logger.info(f"The user selected a good option: {option}")
                 return option
             else:
+                print("Select a good option (range 1-3)")
                 logger.warning("Select a good option (range 1-3)")
 
         except ValueError:
+            print("Insert a number (range 1 - 3)")
             logger.warning("Insert a number (range 1 - 3)")
 
         except KeyboardInterrupt:
+            print("\n(Ctrl + C): Exiting the script...")
             logger.info("(Ctrl + C): Exiting the script...")
             sys.exit(0)
 

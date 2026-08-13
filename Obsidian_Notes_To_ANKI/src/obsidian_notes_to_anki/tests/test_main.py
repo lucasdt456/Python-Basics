@@ -1,18 +1,22 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from obsidian_notes_to_anki.main import main
 
-@pytest.mark.parametrize(
-        "input_args, expected_result",
-        [
-            (["main.py", "-o", "3"], True), 
-            (["main.py", "--option", "2"], True), 
-            (["main.py", "-o", "1"], True), 
 
-        ]
+@pytest.mark.parametrize(
+    "input_args, expected_result",
+    [
+        (["main.py", "-o", "3"], True),
+        (["main.py", "--option", "2"], True),
+        (["main.py", "-o", "1"], True),
+    ],
 )
 @patch("obsidian_notes_to_anki.main.redirect_script")
-def test_main_correct_with_argparse(mock_redirect, monkeypatch, input_args, expected_result):
+def test_main_correct_with_argparse(
+    mock_redirect, monkeypatch, input_args, expected_result
+):
     monkeypatch.setattr("sys.argv", input_args)
     assert main() == expected_result
 
@@ -21,13 +25,13 @@ def test_main_correct_with_argparse(mock_redirect, monkeypatch, input_args, expe
 
 
 @pytest.mark.parametrize(
-        "invalid_arg",
-        [
-            "hello",
-            "bye",
-            "5",
-            "6",
-        ]
+    "invalid_arg",
+    [
+        "hello",
+        "bye",
+        "5",
+        "6",
+    ],
 )
 def test_main_failured_with_argparse(monkeypatch, capsys, invalid_arg):
     monkeypatch.setattr("sys.argv", ["main.py", "-o", invalid_arg])
@@ -42,20 +46,23 @@ def test_main_failured_with_argparse(monkeypatch, capsys, invalid_arg):
 
 
 @pytest.mark.parametrize(
-        "input_user, expected_value",
-        [
-            ("1", 1),
-            ("2", 2),
-            ("3", 3),
-        ]
+    "input_user, expected_value",
+    [
+        ("1", 1),
+        ("2", 2),
+        ("3", 3),
+    ],
 )
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.main.redirect_script")
-def test_main_correct_without_args(mock_redirect, mock_input, monkeypatch, input_user, expected_value):
+def test_main_correct_without_args(
+    mock_redirect, mock_input, monkeypatch, input_user, expected_value
+):
     monkeypatch.setattr("sys.argv", ["main.py"])
     mock_input.return_value = input_user
     assert main() == True
     mock_redirect.assert_called_once_with(expected_value)
+
 
 @patch("builtins.input")
 @patch("obsidian_notes_to_anki.main.redirect_script")
