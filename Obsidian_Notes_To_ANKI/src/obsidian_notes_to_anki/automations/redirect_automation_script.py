@@ -51,7 +51,7 @@ def chase_option(option_selected):
     while True:
         try:
             path_input = input(current_config["prompt"])
-            path_input = path_input.strip("'\"")
+            path_input = path_input.strip().strip("'\"").replace(r"\ ", " ")
             path_input = Path(path_input)
 
             if path_input.exists() and current_config["validator"](path_input):
