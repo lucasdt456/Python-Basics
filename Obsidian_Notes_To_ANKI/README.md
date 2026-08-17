@@ -98,7 +98,7 @@ La opción 2 pide la ruta completa de un directorio, comprueba que existe y que 
 
 La opción 3 pide la ruta completa de la bóveda (raíz), comprueba que existe y que es un directorio. Si es un directorio procede a realizar el mismo algoritmo recursivo que la opción 2.
 
-*En las 3 opciones se muestra por consola el total de archivos modificados y quedan logueados en el `test_files.log`.*
+*En las opciones 2 y 3 se muestra por consola el total de archivos modificados. En las 3 opciones los archivos modificados se quedan logueados en el `test_files.log`.*
 
 ## Limitaciones actuales
 
