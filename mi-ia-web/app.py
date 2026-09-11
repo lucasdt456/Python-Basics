@@ -38,24 +38,32 @@ canvas_result = st_canvas(
 # 3. Procesar el dibujo y predecir
 if canvas_result is not None and hasattr(canvas_result, "image_data") and canvas_result.image_data is not None:
     try:
-        # Convertir el dibujo a 28x28 píxeles (formato MNIST)
-        img = cv2.resize(canvas_result.image_data.astype("uint8"), (28, 28))
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        img = img / 255.0  # Normalizar
-    
+        # 1. Extraer la matriz de la imagen (viene en formato RGBA de 4 canales)
+        img_data = canvas_result.image_data.astype(np.uint8)
+
+        # 2. Convertir de RGBA a Escala de Grises PRIMERO
+        gray_img = cv2.cvtColor(img_data, cv2.COLOR_RGBA2GRAY)
+
+        # 3. Redimensionar a 28x28 píxeles (formato MNIST) usando INTER_AREA para mejor calidad
+        img_resized = cv2.resize(gray_img, (28, 28), interpolation=cv2.INTER_AREA)
+
+        # 4. Normalizar entre 0 y 1
+        img_normalized = img_resized / 255.0 
+
         # Predicción
-        pred = model.predict(img.reshape(1, 28, 28, 1))
+        pred = model.predict(img_normalized.reshape(1, 28, 28, 1))
         clase = np.argmax(pred)
         confianza = np.max(pred)
-    
+
         # 4. Mostrar resultados con Umbral de Seguridad
         st.subheader(f"Resultado: {clase}")
-    
+
         if confianza < 0.80:
             st.warning(f"Confianza baja ({confianza:.2%}). ¿Podrías dibujar más claro?")
         else:
             st.success(f"Confianza alta: {confianza:.2%}")
-    
+
         st.bar_chart(pred[0])  # Visualización de probabilidades
+
     except Exception as e:
         st.info("Dibuja un número en el cuadro negro para comenzar la predicción.")
