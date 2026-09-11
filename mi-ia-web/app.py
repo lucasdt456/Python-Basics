@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
 
-import streamlit_course as st
+import streamlit as st
 
 # Configuración de la página
 st.set_page_config(page_title="IA Digit Recognizer")
