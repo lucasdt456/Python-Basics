@@ -36,7 +36,7 @@ canvas_result = st_canvas(
 )
 
 # 3. Procesar el dibujo y predecir
-if canvas_result.image_data is not None and canvas_result is not None:
+if canvas_result is not None and hasattr(canvas_result, "image_data") and canvas_result.image_data is not None:
     try:
         # Convertir el dibujo a 28x28 píxeles (formato MNIST)
         img = cv2.resize(canvas_result.image_data.astype("uint8"), (28, 28))
